@@ -1,4 +1,3 @@
-// import 'package:first_test/bottom_bar.dart';
 import 'package:flutter/material.dart';
 
 import '../verification/verification.dart';

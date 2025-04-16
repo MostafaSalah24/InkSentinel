@@ -1,9 +1,18 @@
-import 'package:flutter/material.dart';
-import 'package:inksentinel/upload.dart/scancurr.dart';
+import 'dart:io';
 
-class VCurrent extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:inksentinel/components/screens/upload.dart/scancurr.dart';
+
+class VCurrent extends StatefulWidget {
   final String originalImagePath;
-  const VCurrent({super.key, required this.originalImagePath});
+  final File imageFile;
+  const VCurrent({super.key, required this.originalImagePath, required this.imageFile});
+
+  @override
+  State<VCurrent> createState() => _VCurrentState();
+}
+
+class _VCurrentState extends State<VCurrent> {
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +62,7 @@ class VCurrent extends StatelessWidget {
                         BorderRadius.vertical(top: Radius.circular(16)),
                   ),
                   builder: (ctx) => Wrap(
-                    children: [Scancurr(originalImagePath: originalImagePath,)],
+                    children: [Scancurr(originalImagePath: widget.originalImagePath,imageFile: widget.imageFile,)],
                   ),
                   // builder: (ctx) => const Wrap(
                   //   children: [ScanTestd('current')],

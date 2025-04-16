@@ -6,7 +6,8 @@ import 'scan.dart';
 
 class SelectedOriginal extends StatefulWidget {
   final String imagePath;
-  const SelectedOriginal(this.imagePath, {super.key});
+  final File imageFile;
+  const SelectedOriginal(this.imageFile, this.imagePath, {super.key});
 
   @override
   State<SelectedOriginal> createState() => _SelectedOriginalState();
@@ -95,7 +96,7 @@ class _SelectedOriginalState extends State<SelectedOriginal> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => VerificationCurrent(originalImagePath: widget.imagePath),
+                        builder: (context) => VerificationCurrent(originalImagePath: widget.imagePath, imageFile: widget.imageFile,),
                       ),
                     );
                   },

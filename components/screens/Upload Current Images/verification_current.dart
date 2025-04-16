@@ -1,12 +1,20 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import 'upload_current.dart';
 
 
-class VerificationCurrent extends StatelessWidget {
-   final String originalImagePath;
-  const VerificationCurrent({super.key, required this.originalImagePath});
+class VerificationCurrent extends StatefulWidget {
+  final String originalImagePath;
+  final File imageFile;
+  const VerificationCurrent({super.key, required this.originalImagePath, required this.imageFile});
 
+  @override
+  State<VerificationCurrent> createState() => _VerificationCurrentState();
+}
+
+class _VerificationCurrentState extends State<VerificationCurrent> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +34,7 @@ class VerificationCurrent extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            VCurrent(originalImagePath: originalImagePath), // Your original content
+            VCurrent(originalImagePath: widget.originalImagePath ,imageFile: widget.imageFile,), // Your original content
           ],
         ),
       ),

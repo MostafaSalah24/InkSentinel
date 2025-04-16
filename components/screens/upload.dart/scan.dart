@@ -24,21 +24,22 @@ class _ScanTestdState extends State<ScanTestd> {
         return;
       }
 
+      // Convert XFile to File
       final File savedImage = await _saveImageLocally(File(xFile.path));
 
-      if (mounted) Navigator.pop(context);
+      if (!mounted) return;
 
-      if (mounted) {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (ctx) {
-            return SelectedOriginal(savedImage.path);
-            // widget.select == 'original'
-                // ? SelectedOriginal(savedImage.path) // Passing the path
-                // : Selectedcurr(savedImage.path,);
-          }),
-        );
-      }
+      // Close the current page first
+      Navigator.pop(context);
+
+      // Navigate to the correct page with both File and path
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (ctx) {
+          return SelectedOriginal(savedImage,savedImage.path); // Pass both file & path
+              // : Selectedcurr(imageFile: savedImage, imagePath: savedImage.path);
+        }),
+      );
     } catch (e) {
       _showSnackBar('Error picking image: $e');
     }

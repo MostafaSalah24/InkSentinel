@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
-import '../variable.dart';
+import '../../../variable.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -38,7 +38,7 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: darkest,
       body: Center(
         child: Image.asset(
-          'assets/images/Splash_logo.jpg', 
+          'assets/images/Splash_logo2.jpg', 
           height: MediaQuery.of(context).size.height * 0.3, // Responsive height
         ),
       ),

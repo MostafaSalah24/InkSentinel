@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 
-import '../Upload Current Images/checkVerification.dart';
+import '../Upload Current Images/check_verification.dart';
 
 class Scancurr extends StatefulWidget {
   // final String select;
   final String originalImagePath;
-  const Scancurr({super.key, required this.originalImagePath});
+  final File imageFile;
+  const Scancurr({super.key, required this.originalImagePath, required this.imageFile});
   @override
   State<Scancurr> createState() => _ScancurrState();
 }
@@ -31,9 +32,16 @@ class _ScancurrState extends State<Scancurr> {
       if (mounted) {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (ctx) {
-            return Selectedcurr(imagePath: savedImage.path, // Replace with actual path
-                  originalImagePath: widget.originalImagePath);
+           MaterialPageRoute(builder: (ctx) {
+          return Selectedcurr(
+            imageFilecurr: savedImage,
+            imageFile: widget.imageFile, 
+            // imagePath: savedImage.path, // Pass the path
+            // originalImagePath: widget.originalImagePath, // Pass the original image path
+          );
+          // MaterialPageRoute(builder: (ctx) {
+            // return Selectedcurr(imagePath: savedImage.path, // Replace with actual path
+                  // originalImagePath: widget.originalImagePath);
           }),
         );
       }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../History/hist.dart';
 import '../Home/home.dart';
-import '../Sign%20up/sign_up.dart';
+import '../Sign up/sign_up.dart';
 import '../LogIn/log_in.dart';
 import '../Setting/setting_content.dart';
 import '../help/help_content.dart';
@@ -73,7 +73,7 @@ class _BasePageLayoutState extends State<BasePageLayout> {
             _buildDrawerItem(
               icon: Icons.history,
               text: 'History',
-              onTap: () => _navigateTo(context, HistoryPage()),
+              onTap: () => _navigateTo(context, const HistoryPage()),
                 
               
             ),
